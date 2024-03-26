@@ -8,6 +8,7 @@
 import Foundation
 
 class MainViewModel {
+    
     // MARK: - Properties
     internal var photos: [Photo] = []
     

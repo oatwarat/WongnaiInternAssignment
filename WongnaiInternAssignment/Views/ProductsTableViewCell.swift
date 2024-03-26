@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 
 class ProductsTableViewCell: UITableViewCell {
+    
     // MARK: - IBOutlets
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!

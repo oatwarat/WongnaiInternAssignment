@@ -8,6 +8,7 @@
 import Foundation
 
 class APIService {
+    
     // MARK: - Singleton
     static let shared = APIService()
     

@@ -8,6 +8,7 @@
 import Foundation
 
 struct NetworkService {
+    
     // MARK: - Base URL
     private static let baseURL = "https://api.500px.com/v1/"
     

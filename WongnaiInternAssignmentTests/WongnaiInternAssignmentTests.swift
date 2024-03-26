@@ -11,6 +11,7 @@ import XCTest
 class WongnaiInternAssignmentTests: XCTestCase {
     var viewController: ViewController!
     
+    // MARK: - Setup
     override func setUp() {
         super.setUp()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
