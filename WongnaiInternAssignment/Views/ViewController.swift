@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         fetchPhotos()
     }
     
-    // MARK: - Table View Setup
+    // MARK: - Setup Table View
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
