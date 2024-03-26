@@ -12,8 +12,8 @@ WongnaiInternAssignment is an iOS application developed as part of an intern ass
 
 ## Requirements
 - iOS 12.0+
-- Xcode 12.0+
-- Swift 5.0+
+- Xcode 15+
+- Swift 5.10+
 
 ## Installation
 1. Clone the repository:
