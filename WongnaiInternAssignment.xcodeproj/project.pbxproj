@@ -22,7 +22,18 @@
 		6A99ADDA2BAF412C00C9CFC7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A99ADD92BAF412C00C9CFC7 /* NetworkError.swift */; };
 		6A99ADDD2BAF511300C9CFC7 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 6A99ADDC2BAF511300C9CFC7 /* SDWebImage */; };
 		6A99ADDF2BAF511300C9CFC7 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6A99ADDE2BAF511300C9CFC7 /* SDWebImageMapKit */; };
+		6A99ADEB2BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A99ADEA2BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6A99ADEC2BB2FC7600C9CFC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6A99AD8E2BADAB3500C9CFC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6A99AD952BADAB3500C9CFC7;
+			remoteInfo = WongnaiInternAssignment;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6A99AD962BADAB3500C9CFC7 /* WongnaiInternAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WongnaiInternAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +52,8 @@
 		6A99ADD72BADF81400C9CFC7 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		6A99ADD92BAF412C00C9CFC7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		6A99ADE02BB2012C00C9CFC7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6A99ADE82BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WongnaiInternAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A99ADEA2BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WongnaiInternAssignmentTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +66,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A99ADE52BB2FC7600C9CFC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -60,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				6A99AD982BADAB3500C9CFC7 /* WongnaiInternAssignment */,
+				6A99ADE92BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests */,
+				6A99ADE02BB2012C00C9CFC7 /* README.md */,
 				6A99AD972BADAB3500C9CFC7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				6A99AD962BADAB3500C9CFC7 /* WongnaiInternAssignment.app */,
+				6A99ADE82BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +104,6 @@
 				6A99ADAF2BADAB6800C9CFC7 /* Services */,
 				6A99ADAE2BADAB5600C9CFC7 /* Resources */,
 				6A99ADAD2BADAB5000C9CFC7 /* SupportingFiles */,
-				6A99ADE02BB2012C00C9CFC7 /* README.md */,
 			);
 			path = WongnaiInternAssignment;
 			sourceTree = "<group>";
@@ -142,6 +164,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		6A99ADE92BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests */ = {
+			isa = PBXGroup;
+			children = (
+				6A99ADEA2BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.swift */,
+			);
+			path = WongnaiInternAssignmentTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -166,6 +196,24 @@
 			productReference = 6A99AD962BADAB3500C9CFC7 /* WongnaiInternAssignment.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6A99ADE72BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A99ADEE2BB2FC7600C9CFC7 /* Build configuration list for PBXNativeTarget "WongnaiInternAssignmentTests" */;
+			buildPhases = (
+				6A99ADE42BB2FC7600C9CFC7 /* Sources */,
+				6A99ADE52BB2FC7600C9CFC7 /* Frameworks */,
+				6A99ADE62BB2FC7600C9CFC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A99ADED2BB2FC7600C9CFC7 /* PBXTargetDependency */,
+			);
+			name = WongnaiInternAssignmentTests;
+			productName = WongnaiInternAssignmentTests;
+			productReference = 6A99ADE82BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -178,6 +226,10 @@
 				TargetAttributes = {
 					6A99AD952BADAB3500C9CFC7 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					6A99ADE72BB2FC7600C9CFC7 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 6A99AD952BADAB3500C9CFC7;
 					};
 				};
 			};
@@ -198,6 +250,7 @@
 			projectRoot = "";
 			targets = (
 				6A99AD952BADAB3500C9CFC7 /* WongnaiInternAssignment */,
+				6A99ADE72BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,6 +264,13 @@
 				6A99ADD42BADF44900C9CFC7 /* ProductsTableViewCell.xib in Resources */,
 				6A99ADA62BADAB3700C9CFC7 /* Base in Resources */,
 				6A99ADA12BADAB3500C9CFC7 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A99ADE62BB2FC7600C9CFC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +293,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6A99ADE42BB2FC7600C9CFC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A99ADEB2BB2FC7600C9CFC7 /* WongnaiInternAssignmentTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6A99ADED2BB2FC7600C9CFC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6A99AD952BADAB3500C9CFC7 /* WongnaiInternAssignment */;
+			targetProxy = 6A99ADEC2BB2FC7600C9CFC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6A99AD9F2BADAB3500C9CFC7 /* Main.storyboard */ = {
@@ -307,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -364,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -430,6 +506,44 @@
 			};
 			name = Release;
 		};
+		6A99ADEF2BB2FC7600C9CFC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2XWQ68J4V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.warat.WongnaiInternAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WongnaiInternAssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WongnaiInternAssignment";
+			};
+			name = Debug;
+		};
+		6A99ADF02BB2FC7600C9CFC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2XWQ68J4V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.warat.WongnaiInternAssignmentTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WongnaiInternAssignment.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/WongnaiInternAssignment";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -447,6 +561,15 @@
 			buildConfigurations = (
 				6A99ADAB2BADAB3700C9CFC7 /* Debug */,
 				6A99ADAC2BADAB3700C9CFC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6A99ADEE2BB2FC7600C9CFC7 /* Build configuration list for PBXNativeTarget "WongnaiInternAssignmentTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A99ADEF2BB2FC7600C9CFC7 /* Debug */,
+				6A99ADF02BB2FC7600C9CFC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -9,7 +9,7 @@ import Foundation
 
 class MainViewModel {
     // MARK: - Properties
-    private var photos: [Photo] = []
+    internal var photos: [Photo] = []
     
     // MARK: - Computed Properties
     var numberOfPhotos: Int {
@@ -25,15 +25,20 @@ class MainViewModel {
     }
     
     // MARK: - Fetch Photos
-    func fetchPhotos(completion: @escaping (Result<Void, Error>) -> Void) {
-        APIService.shared.fetchPhotos { [weak self] result in
+    func fetchPhotos(page: Int = 1, completion: @escaping (Result<PhotoResponse, Error>) -> Void) {
+        APIService.shared.fetchPhotos(page: page) { [weak self] result in
             switch result {
             case .success(let photoResponse):
-                self?.photos = photoResponse.photos
-                completion(.success(()))
+                self?.photos.append(contentsOf: photoResponse.photos)
+                completion(.success(photoResponse))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+    
+    // MARK: - Clear Photos
+    func clearPhotos() {
+        photos.removeAll()
     }
 }

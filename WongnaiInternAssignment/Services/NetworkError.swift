@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Network Error Cases
 enum NetworkError: Error {
     case invalidURL
     case dataNotFound

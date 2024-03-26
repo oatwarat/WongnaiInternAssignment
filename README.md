@@ -11,7 +11,7 @@ WongnaiInternAssignment is an iOS application developed as part of an intern ass
 - Follows MVVM (Model-View-ViewModel) architectural pattern
 
 ## Requirements
-- iOS 13.0+
+- iOS 12.0+
 - Xcode 12.0+
 - Swift 5.0+
 
@@ -46,6 +46,5 @@ The following resources were helpful during the development of this project:
 - [Apple Developer Documentation](https://developer.apple.com/documentation/)
 
 ## Contact
-- Name: Warat Poovorakit
 - Email: waratppp@gmail.com
 - GitHub: [oatwarat](https://github.com/oatwarat)

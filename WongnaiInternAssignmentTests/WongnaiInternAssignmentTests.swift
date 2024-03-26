@@ -6,30 +6,75 @@
 //
 
 import XCTest
+@testable import WongnaiInternAssignment
 
-final class WongnaiInternAssignmentTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class WongnaiInternAssignmentTests: XCTestCase {
+    var viewController: ViewController!
+    
+    override func setUp() {
+        super.setUp()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        viewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as? ViewController
+        viewController.loadViewIfNeeded()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        viewController = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+    
+    // MARK: - Fetch Photos Test
+    func testFetchPhotos() {
+        // Given
+        let expectation = XCTestExpectation(description: "Fetch photos from API")
+       
+        // When
+        viewController.viewModel.fetchPhotos { result in
+            switch result {
+            case .success(let photoResponse):
+                XCTAssertGreaterThan(photoResponse.photos.count, 0, "Expected photos to be fetched")
+            case .failure(let error):
+                XCTFail("Fetching photos failed with error: \(error.localizedDescription)")
+            }
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 5.0)
     }
+    
+    // MARK: - Refresh Data Test
+    func testRefreshFetchesNewData() {
+        // Given
+        let expectation = XCTestExpectation(description: "Refresh and fetches new data")
+        let initialPhotos = viewController.viewModel.photos
 
+        // When
+        viewController.refreshData()
+
+        // Then
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            XCTAssertGreaterThan(self.viewController.viewModel.photos.count, initialPhotos.count, "Expected new photos to be fetched after refresh")
+            XCTAssertEqual(self.viewController.tableView.numberOfRows(inSection: 0), self.viewController.viewModel.numberOfPhotos, "Table view should have the same number of rows as the fetched photos")
+
+            self.viewController.tableView.layoutIfNeeded()
+            RunLoop.current.run(until: Date().addingTimeInterval(1.0))
+
+            let lastIndexPath = IndexPath(row: self.viewController.viewModel.numberOfPhotos - 1, section: 0)
+
+            guard let lastCell = self.viewController.tableView.cellForRow(at: lastIndexPath) as? ProductsTableViewCell else {
+                expectation.fulfill()
+                return
+            }
+
+            if let lastPhoto = self.viewController.viewModel.photo(at: lastIndexPath.row) {
+                XCTAssertEqual(lastCell.nameLabel.text, lastPhoto.name, "Expected the new cell to display the correct photo name")
+                XCTAssertEqual(lastCell.likesLabel.text, "\(lastPhoto.votesCount) likes", "Expected the new cell to display the correct number of likes")
+            } else {
+                XCTFail("Expected a photo at the last index path")
+            }
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 15.0)
+    }
 }

@@ -12,10 +12,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
-    private let viewModel = MainViewModel()
+    internal let viewModel = MainViewModel()
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupTableView()
         fetchPhotos()
@@ -32,24 +33,37 @@ class ViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
+    // MARK: - Refresh Data
+    @objc internal func refreshData() {
+        // Clear the existing photos
+        viewModel.clearPhotos()
+        tableView.reloadData()
+        
+        // Fetch new photos
+        fetchPhotos()
+    }
+    
     // MARK: - Fetch Photos
+    private var currentPage = 1
+    
     private func fetchPhotos() {
-        viewModel.fetchPhotos { [weak self] result in
+        tableView.refreshControl?.beginRefreshing()
+        
+        viewModel.fetchPhotos(page: currentPage) { [weak self] result in
+            DispatchQueue.main.async {
+                self?.tableView.refreshControl?.endRefreshing()
+            }
+            
             switch result {
             case .success:
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.currentPage += 1
                 }
             case .failure(let error):
                 print("Error fetching photos: \(error.localizedDescription)")
             }
         }
-    }
-    
-    // MARK: - Refresh Data
-    @objc private func refreshData() {
-        fetchPhotos()
-        tableView.refreshControl?.endRefreshing()
     }
 }
 

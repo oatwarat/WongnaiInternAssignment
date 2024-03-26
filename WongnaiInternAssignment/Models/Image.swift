@@ -23,7 +23,7 @@ struct PhotoResponse: Codable {
 }
 
 // MARK: - Photo
-struct Photo: Codable {
+struct Photo: Codable, Equatable {
     let id: Int
     let name: String
     let description: String
@@ -42,7 +42,7 @@ struct Photo: Codable {
 }
 
 // MARK: - PhotoImage
-struct PhotoImage: Codable {
+struct PhotoImage: Codable, Equatable {
     let url: String
     let httpsUrl: String
     
@@ -53,7 +53,7 @@ struct PhotoImage: Codable {
 }
 
 // MARK: - User
-struct User: Codable {
+struct User: Codable, Equatable {
     let id: Int
     let username: String
     let fullname: String
