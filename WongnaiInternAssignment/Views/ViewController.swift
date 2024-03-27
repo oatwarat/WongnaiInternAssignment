@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     internal let viewModel = MainViewModel()
+    private var currentPage = 1
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
         fetchPhotos()
     }
     
-    // MARK: - Setup Table View
+    // MARK: - Table View Setup
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -38,15 +39,7 @@ class ViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
-    // MARK: - Refresh Data
-    @objc internal func refreshData() {
-        viewModel.clearPhotos()
-        tableView.reloadData()
-        fetchPhotos()
-    }
-    
     // MARK: - Fetch Photos
-    private var currentPage = 1
     private func fetchPhotos() {
         viewModel.fetchPhotos(page: currentPage) { [weak self] result in
             DispatchQueue.main.async {
@@ -63,6 +56,13 @@ class ViewController: UIViewController {
                 print("Error fetching photos: \(error.localizedDescription)")
             }
         }
+    }
+    
+    // MARK: - Refresh Data
+    @objc internal func refreshData() {
+        viewModel.clearPhotos()
+        tableView.reloadData()
+        fetchPhotos()
     }
 }
 

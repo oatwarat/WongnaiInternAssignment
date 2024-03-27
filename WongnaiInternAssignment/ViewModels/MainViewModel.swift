@@ -31,8 +31,13 @@ class MainViewModel {
         APIService.shared.fetchPhotos(page: page) { [weak self] result in
             switch result {
             case .success(let photoResponse):
-                self?.photos.append(contentsOf: photoResponse.photos)
-                completion(.success(photoResponse))
+                if photoResponse.photos.isEmpty {
+                    // No new photos to fetch, do nothing
+                    completion(.success(photoResponse))
+                } else {
+                    self?.photos.append(contentsOf: photoResponse.photos)
+                    completion(.success(photoResponse))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
