@@ -22,6 +22,7 @@ class MainViewModel {
         guard index >= 0 && index < photos.count else {
             return nil
         }
+        
         return photos[index]
     }
     

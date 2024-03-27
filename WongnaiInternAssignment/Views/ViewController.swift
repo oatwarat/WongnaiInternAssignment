@@ -17,13 +17,17 @@ class ViewController: UIViewController {
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setupTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.refreshControl?.beginRefreshing()
         fetchPhotos()
     }
     
-    // MARK: - Setup Table View
+    // MARK: - Table View Setup
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,20 +40,14 @@ class ViewController: UIViewController {
     
     // MARK: - Refresh Data
     @objc internal func refreshData() {
-        // Clear the existing photos
         viewModel.clearPhotos()
         tableView.reloadData()
-        
-        // Fetch new photos
         fetchPhotos()
     }
     
     // MARK: - Fetch Photos
     private var currentPage = 1
-    
     private func fetchPhotos() {
-        tableView.refreshControl?.beginRefreshing()
-        
         viewModel.fetchPhotos(page: currentPage) { [weak self] result in
             DispatchQueue.main.async {
                 self?.tableView.refreshControl?.endRefreshing()

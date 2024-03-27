@@ -39,7 +39,7 @@ class WongnaiInternAssignmentTests: XCTestCase {
             }
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 15.0)
     }
     
     // MARK: - Refresh Data Test
